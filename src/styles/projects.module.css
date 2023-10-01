@@ -1,0 +1,125 @@
+.projects {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  margin-bottom: 4rem;
+  padding-top: 8rem;
+  scroll-snap-align: start;
+  /* scroll-snap-type: unset; */
+}
+
+.tabBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  gap: 2.5em;
+  padding-bottom: 1em;
+}
+
+.tabs {
+  font-size: 1.5em;
+  text-align: left;
+  transition: all 1s ease-in-out;
+  cursor:pointer;
+}
+
+.tabActive {
+  flex: 1;
+  transition: all 1s ease-in-out;
+}
+
+.tab1Active {
+  color: var(--color-1);
+}
+.tab2Active {
+  color: var(--color-2);
+}
+.tab3Active {
+  color: var(--color-3);
+}
+.tab4Active {
+  color: var(--color-4);
+}
+
+.tab1Inactive:hover {
+  color: var(--color-1);
+}
+.tab2Inactive:hover {
+  color: var(--color-2);
+}
+.tab3Inactive:hover {
+  color: var(--color-3);
+}
+.tab4Inactive:hover {
+  color: var(--color-4);
+}
+
+.dividerSolid {
+  width: 100%;
+  margin: 0 0 0 0;
+  transition: border-color 0.5s linear;
+}
+
+.divider1 {
+  border-top: 0.5em solid var(--color-1);
+}
+.divider2 {
+  border-top: 0.5em solid var(--color-2);
+}
+.divider3 {
+  border-top: 0.5em solid var(--color-3);
+}
+.divider4 {
+  border-top: 0.5em solid var(--color-4);
+}
+
+.tagSelector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8em;
+  width: 100%;
+  margin: 1em;
+  justify-content: center;
+}
+
+.tag {
+  display: flex;
+  gap: 0.5em;
+  background-color: var(--color-white);
+  border-radius: 1em;
+  border: 1px solid var(--color-black);
+  padding: 0.3em 1em;
+  font-size: 0.8em;
+  font-family: var(--font-text);
+  cursor: pointer;
+}
+
+.tagEnabled {
+  color: var(--color-current);
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  justify-content: center;
+
+  transition: all 1s ease-in-out;
+}
+
+@media (max-width: 60rem) {
+  .projects {
+    font-size: 85%;
+  }
+}
+
+@media (max-width: 40rem) {
+  .tabBlock {
+    gap: 1.5em;
+  }
+  .tabs {
+    font-size: 1.2em;
+  }
+}

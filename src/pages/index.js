@@ -11,7 +11,7 @@ import DOMPurify from "isomorphic-dompurify";
 import { Collapsible } from '@/components';
 import { React, useEffect, useState } from "react";
 
-const inter = Inter({ subsets: ['latin'] })
+
 
 export default function Home({ summary, experience, education, info }) {
   const [currHero, setCurrHero] = useState(1);

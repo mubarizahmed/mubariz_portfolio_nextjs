@@ -1,68 +1,71 @@
 import React, {  } from "react";
 import { IconContext } from "react-icons";
 import { FaLinkedinIn, FaGithub, FaXing } from "react-icons/fa";
+import Image from "next/image";
 
 
-import "@/styles/footer.module.css";
+import styles from "@/styles/footer.module.css";
 
-const Footer = ({ linkedIn, gitHub }) => {
+const Footer = ({ info }) => {
+  const linkedIn = "https://www.linkedin.com/in/mubariz-ahmed/";
+  const gitHub = "https://github.com/mubarizahmed"
 
   return (
-    <footer className="footer">
-      <div className="footer-main">
-        <div className="footer-left">
-          <div className="footer-logo">
+    <footer className={styles.footer}>
+      <div className={styles.main}>
+        <div className={styles.left}>
+          <div className={styles.logo}>
             <img src={'/logo-H_w.svg'} alt="Mubariz Ahmed Logo" />
           </div>
-          <div className="footer-icons">
+          <div className={styles.icons}>
             <IconContext.Provider
               value={{ color: "black", style: { verticalAlign: "middle" } }}
             >
-              <a className="footer-icon" href={linkedIn} aria-label="LinkedIn Profile">
+              <a className={styles.icon} href={linkedIn} aria-label="LinkedIn Profile">
                 <FaLinkedinIn />
               </a>
 
-              <a className="footer-icon" href={gitHub} aria-label="GitHub Profile">
+              <a className={styles.icon} href={gitHub} aria-label="GitHub Profile">
                 <FaGithub />
               </a>
 
-              <a className="footer-icon" href={linkedIn} aria-label="Xing Profile">
+              <a className={styles.icon} href={linkedIn} aria-label="Xing Profile">
                 <FaXing />
               </a>
             </IconContext.Provider>
           </div>
         </div>
-        <div className="footer-right">
+        <div className={styles.right}>
           
           <form
-            className="footer-form"
+            className={styles.form}
             target="_blank"
             action="https://formsubmit.co/6b9d3482af1163a987ab4003f4d165fa "
             method="POST"
             id="contact"
           >
             <h2>Contact:</h2>
-            <div className="form-group">
-              <div className="form-col">
+            <div className={styles.formGroup}>
+              <div className={styles.formCol}>
                 <input
                   type="text"
                   name="name"
-                  className="form-control"
+                  className={styles.input}
                   placeholder="Full Name"
                   required
                 />
                 <input
                   type="email"
                   name="email"
-                  className="form-control"
+                  className={styles.input}
                   placeholder="Email Address"
                   required
                 />
               </div>
-              <div className="form-text">
+              <div className={styles.formText}>
                 <textarea
                   placeholder="Your Message"
-                  className="form-control"
+                  className={styles.input}
                   name="message"
                   rows="10"
                   required
@@ -70,13 +73,13 @@ const Footer = ({ linkedIn, gitHub }) => {
               </div>
             </div>
 
-            <button type="submit" className="form-button">
+            <button type="submit" className={styles.formButton}>
               Submit Form
             </button>
           </form>
         </div>
       </div>
-      <div className="footer-copywright">
+      <div className={styles.copywright}>
         <p>Copyright © 2022 Mubariz Ahmed. All rights reserved.</p>
       </div>
     </footer>

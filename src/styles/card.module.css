@@ -1,7 +1,3 @@
-:root {
-  --surface-color: var(--color-white);
-  --curve: 40;
-}
 
 .card{
   position: relative;
@@ -18,18 +14,18 @@
   transition: all ease-in-out 0.3s;
 }
 
-.card-img-wrap{
+.imgWrap{
   position: relative;
 
 }
 
-.card-img-wrap img{
+.imgWrap img{
   width:  100%;
   aspect-ratio: 1/1;
   object-fit: cover;
 }
 
-.card-tags{
+.tags{
   position: absolute;
   bottom: 1em;
   left: 0;
@@ -50,13 +46,13 @@
 }
 
 
-.card:hover .card-tags{
+.card:hover .tags{
   visibility: visible;
   opacity: 1;
   transition: all 0.3s linear;
 }
 
-.card-tag{
+.tag{
   
   display: flex;
   align-self: flex-end;
@@ -69,7 +65,7 @@
   font-family: var(--font-text);
 }
 
-.card-preview{
+.preview{
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -79,26 +75,26 @@
 
 
 
-.card-title{
+.title{
   display: flex;
   justify-content: space-between;
   padding:0.5em;
   align-items: center;
 }
 
-.card-preview h3{
+.preview h3{
   
   text-align: left;
   font-size: 1em;
   font-weight: 500;
   flex: 3;
 }
-.card-icon{
+.icon{
   flex:1;
   vertical-align: middle;
   margin-left: 0.5em;
 }
-.card-icon:hover{
+.icon:hover{
   color: var(--color-current);
 }
 

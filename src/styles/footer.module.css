@@ -11,7 +11,7 @@
   color: #fff;
   gap: 1rem;
 }
-.footer-main{
+.main{
   display: flex;
   justify-content: space-between;
   align-items: top;
@@ -21,7 +21,7 @@
 
 
 
-.footer-left{
+.left{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,7 +29,7 @@
   align-items: top;
 }
 
-.footer-logo{
+.logo{
   display: block;
   align-items: center;
   overflow: hidden;
@@ -37,17 +37,17 @@
   text-align: center;
 }
 
-  .footer-logo img{
+  .logo img{
     object-fit: cover;
     width:15em;
   }
 
-.footer-icons{
+.icons{
   display: flex;
   justify-content: center;
   gap: 1em
 }
-.footer-icon{
+.icon{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,15 +60,15 @@
   /* vertical-align: middle; */
 }
 
-.footer-right{
+.right{
   flex: 2;
 }
-.footer-form{
+.form{
   display: flex;
   flex-direction: column;
   gap:1em;
 }
-.form-group{
+.formGroup{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -76,14 +76,14 @@
   /* padding-top: 0.5em; */
 }
 
-.form-col{
+.formCol{
   flex: 2;
   display: flex;
   flex-direction: column;
   gap: 1em;
 }
 
-.footer-input{
+.input{
   border-top-style: hidden;
   border-right-style: hidden;
   border-left-style: hidden;
@@ -104,26 +104,26 @@
   font-family: var(--font-family-1)
 }
 
-.footer-input ::placeholder{
+.input ::placeholder{
   color: var(--color-black);
 }
 
-.form-col input{
+.formCol input{
   background-color: var(--color-white);
   border-radius: 5px;
   color: var(--color-black);
 }
 
-.form-text{
+.formText{
   flex: 3;
 }
-.form-group textarea{
+.formGroup textarea{
   resize: none;
   height:5.6em;
   /* width: 20em; */
 }
 
-.form-button{
+.formButton{
   padding: 0.5rem 1rem;
   color: var(--color-white);
   background: var(--color-current);
@@ -137,7 +137,7 @@
   transition: background-color 1s ease-in-out;
 }
 
-.footer-copywright{
+.copywright{
   text-align: center;
   color: var(--color-white);
   font-family: var(--font-text);
@@ -158,7 +158,7 @@
     margin: 0;
     border-radius:0;
   }
-  .footer-main{
+  .main{
     flex-direction: column;
     gap: 2em;
   }

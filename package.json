@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^16.1.2",
+    "@contentful/rich-text-react-renderer": "^15.17.2",
     "contentful": "^10.6.0",
     "dompurify": "^2.4.0",
+    "framer-motion": "^10.16.4",
     "isomorphic-dompurify": "^1.9.0",
     "next": "latest",
     "react": "latest",
