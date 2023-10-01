@@ -1,0 +1,112 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap');
+
+:root {
+  --font-family: 'Space Grotesk', sans-serif;
+  --font-text: 'Manrope', sans-serif;
+  --font-code:'Inconsolata', monospace;
+  
+  --gradient-text: linear-gradient(89.97deg, #03DAC5 1.84%, #BB86FC 102.67%);
+  --gradient-bar: linear-gradient(103.22deg, #AE67FA -13.86%, #F49867 99.55%);
+  
+  --color-bg: #111111;
+  --color-1: #BB86FC;
+  --color-2: #02D9A0;
+  --color-3: #FE4A49;
+  --color-4: #042c54;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-gray: #646464;
+  --color-current: #BB86FC;
+
+
+  /* 
+    --gradient-text: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
+  --gradient-bar: linear-gradient(103.22deg, #AE67FA -13.86%, #F49867 99.55%);
+  
+  --color-bg: #040C18;
+  --color-footer : #031B34;
+  --color-blog: #042c54;
+  --color-text: #81AFDD;
+  --color-subtext: #FF8A71;
+  --color-white: #FFFFFF; */
+
+}
+html{
+  scroll-snap-type: y proximity;
+  max-height: 100vh;
+  overflow-y: scroll;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-white);
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+.dotted__bg {
+  --bg-color: black;
+  --dot-color: rgba(0, 0, 0, 0.5);;
+  --dot-size: 0.1vw;
+  --dot-space: calc( calc(100vw - 0.5rem)  / 15);
+
+  background: white;
+  background-image: radial-gradient(var(--dot-color) var(--dot-size), transparent 0);
+  background-size: var(--dot-space) var(--dot-space);
+
+  /* background: linear-gradient(90deg, var(--bg-color) (var(----dot-space) - var(--dot-size)), transparent 1%) center, linear-gradient(var(--bg-color) (var(--dot-space) - var(--dot-size)), transparent 1%) center, var(--dot-color);
+  background-size: var(--dot-space) var(--dot-space); */
+}
+
+.outlet__margin{
+  margin:0 10vw;
+}
+
+
+.scale-up-center {
+    -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 40rem) {
+  .outlet__margin{
+    margin:0 5vw;
+  }
+}
+
