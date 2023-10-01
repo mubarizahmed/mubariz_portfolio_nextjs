@@ -37,7 +37,6 @@
   --color-text: #81AFDD;
   --color-subtext: #FF8A71;
   --color-white: #FFFFFF; */
-
 }
 html{
   scroll-snap-type: y proximity;
