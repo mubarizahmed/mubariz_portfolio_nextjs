@@ -9,7 +9,7 @@
   flex-direction: column;
   min-height: 100vh;
   align-items: center;
-  padding: 8rem 0 3em 0;
+  padding: 8rem 0 3rem 0;
   scroll-snap-align: start;
   width: 100%;
 }
@@ -26,6 +26,7 @@ hr.solid {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  height: calc(100vh - 11rem);
 }
 
 .heroText {

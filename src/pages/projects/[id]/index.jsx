@@ -6,9 +6,10 @@ import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import DOMPurify from "isomorphic-dompurify";
+import { marked } from "marked";
 import styles from "@/styles/projectDetails.module.css";
 
-const ProjectDetails = ({ content }) => {
+const ProjectDetails = ({ content, body }) => {
 
   useEffect(() => {
     switch (content?.fields?.category) {
@@ -73,7 +74,7 @@ const ProjectDetails = ({ content }) => {
   };
 
   return (
-    <div className={styles.blog}>
+    <div className={'outlet__bg '+ styles.blog}>
       <div className={styles.hero}>
         <div className={styles.heroLeft}>
           <div className={styles.heroCategory}>{content?.fields?.category}</div>
@@ -88,8 +89,7 @@ const ProjectDetails = ({ content }) => {
           <img src={content?.fields?.cover?.fields?.file?.url} alt={content?.fields?.title} />
         </div>
       </div>
-      <div className={styles.body}>
-        {documentToReactComponents(content?.fields?.details, renderOptions)}
+      <div className={styles.body} dangerouslySetInnerHTML={{__html: body}}>
       </div>
     </div>
   );
@@ -129,9 +129,13 @@ export const getStaticProps = async ({ params }) => {
   const { id } = params;
   let res = await client.getEntry(id);
 
+  let body = DOMPurify.sanitize(marked.parse(res.fields.detailsMd));
+  console.log(body);
+
   return {
     props: {
       content: res,
+      body
     },
   };
 }
