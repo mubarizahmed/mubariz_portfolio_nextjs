@@ -129,7 +129,12 @@ export const getStaticProps = async ({ params }) => {
   const { id } = params;
   let res = await client.getEntry(id);
 
-  let body = DOMPurify.sanitize(marked.parse(res.fields.detailsMd));
+  let body = {};
+
+  if (res.fields.detailsMd){
+    body = DOMPurify.sanitize(marked.parse(res.fields.detailsMd));
+  }
+
   console.log(body);
 
   return {
