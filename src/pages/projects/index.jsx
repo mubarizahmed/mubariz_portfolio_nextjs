@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Head from 'next/head'
 import { createClient } from "contentful";
 import { Card } from "../../components";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { RiFilter2Fill } from "react-icons/ri";
 
 import styles from "@/styles/projects.module.css";
@@ -129,6 +129,7 @@ const Projects = ({ projects, filterTags }) => {
 
         </motion.div>
         <div className={styles.content}>
+        <AnimatePresence>
           {viewData &&
             viewData.map((project) => (
               <Card
@@ -140,6 +141,7 @@ const Projects = ({ projects, filterTags }) => {
               ></Card>
 
             ))}
+            </AnimatePresence>
         </div>
       </div>
     </>

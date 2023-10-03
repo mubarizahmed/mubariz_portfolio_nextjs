@@ -8,7 +8,20 @@ import styles from "@/styles/card.module.css";
 
 const Card = (props) => {
   return (
-    <motion.div layout className={styles.card}>
+    <motion.div  key={props.title} className={styles.card}
+    animate='visible'
+    exit={{opacity: 0}}
+    initial='hidden'
+    variants = {{
+      visible: {
+        opacity: 1,
+        transition: {
+          delay: 0.5,
+        },
+      },
+      hidden: {x:0, y:0, opacity: 0 },
+    }}
+    >
       <div className={styles.imgWrap}>
         <img className={styles.img} src={props?.cover} alt={props?.title} />
 
