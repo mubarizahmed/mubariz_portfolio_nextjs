@@ -10,35 +10,35 @@ import styles from "@/styles/projects.module.css";
 const Projects = ({ projects, filterTags }) => {
   const [toggleState, setToggleState] = useState(1);
   const [viewData, setViewData] = useState([]);
-  const [showFilter, setShowFilter] = useState(false);
+  const [showFilter, setShowFilter] = useState([false, false, false, false]);
+
+  const updateViewData = () => {
+    if (filterTags[toggleState - 1].every((x) => x.enabled === false)) {
+      setViewData(projects[toggleState - 1]);
+      return;
+    }
+    setViewData(
+      projects[toggleState - 1].filter((i) => {
+        for (const tag of i.fields.tags) {
+          //console.log(filterTags);
+          const index = filterTags[toggleState - 1].findIndex((x) => x.name === tag);
+          //console.log(index);
+          if (!(index === -1) && filterTags[toggleState - 1][index].enabled) {
+            return true;
+          }
+        }
+        return false;
+      })
+    );
+  };
 
   // update view data
   useEffect(() => {
-    const updateViewData = () => {
-      if (filterTags[toggleState - 1].every((x) => x.enabled === false)) {
-        setViewData(projects[toggleState - 1]);
-        return;
-      }
-      setViewData(
-        projects[toggleState - 1].filter((i) => {
-          for (const tag of i.fields.tags) {
-            //console.log(filterTags);
-            const index = filterTags[toggleState - 1].findIndex((x) => x.name === tag);
-            //console.log(index);
-            if (!(index === -1) && filterTags[toggleState - 1][index].enabled) {
-              return true;
-            }
-          }
-          return false;
-        })
-      );
-    };
-
     console.log(filterTags, projects, toggleState)
     if (projects[toggleState - 1] && filterTags[toggleState - 1]) {
       updateViewData();
     }
-  }, [filterTags, projects, toggleState]);
+  }, [filterTags, projects, toggleState,]);
 
   // update current color
   useEffect(() => {
@@ -47,6 +47,33 @@ const Projects = ({ projects, filterTags }) => {
       `var(--color-${toggleState})`
     );
   }, [toggleState])
+
+  const toggleFilter = (name) => {
+    console.log(name);
+    try {
+      const newFilterTags = [...filterTags];
+      const index = newFilterTags[toggleState - 1].findIndex((obj) => obj.name === name);
+      newFilterTags[toggleState - 1][index].enabled = !newFilterTags[toggleState - 1][index].enabled;
+      //console.log(newFilterTags[index].enabled);
+      filterTags = newFilterTags;
+      updateViewData();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const toggleShowFilter = () => {
+    if (showFilter[toggleState - 1]) {
+      // toggle all filters off
+      const newFilterTags = [...filterTags];
+      newFilterTags[toggleState - 1].forEach((obj) => obj.enabled = false);
+      filterTags = newFilterTags;
+      updateViewData();
+    }
+    const newShowFilter = [...showFilter];
+    newShowFilter[toggleState - 1] = !newShowFilter[toggleState - 1];
+    setShowFilter(newShowFilter);
+  }
 
   return (
     <>
@@ -80,7 +107,7 @@ const Projects = ({ projects, filterTags }) => {
 
           transition={{ duration: 1 }}
           className={styles.tagSelector}>
-          {showFilter ?
+          {showFilter[toggleState - 1] ?
             filterTags[toggleState - 1].map((item) => (
               <motion.div layout
                 className={item.enabled ? styles.tag + ' ' + styles.tagEnabled : styles.tag}
@@ -93,15 +120,15 @@ const Projects = ({ projects, filterTags }) => {
             ))
             : ''}
           <motion.div layout
-            className={styles.filterButton + ' ' + (showFilter ? styles.filterButtonActive : '')}
-            onClick={() => setShowFilter(!showFilter)}
+            className={styles.filterButton + ' ' + (showFilter[toggleState - 1] ? styles.filterButtonActive : '')}
+            onClick={toggleShowFilter}
           >
             <RiFilter2Fill />
 
           </motion.div>
 
         </motion.div>
-        <motion.div layout className={styles.content}>
+        <div className={styles.content}>
           {viewData &&
             viewData.map((project) => (
               <Card
@@ -113,7 +140,7 @@ const Projects = ({ projects, filterTags }) => {
               ></Card>
 
             ))}
-        </motion.div>
+        </div>
       </div>
     </>
   );

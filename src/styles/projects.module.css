@@ -135,7 +135,7 @@
   flex-wrap: wrap;
   gap: 2em;
   justify-content: center;
-
+  width: 100%;
   transition: all 1s ease-in-out;
 }
 
