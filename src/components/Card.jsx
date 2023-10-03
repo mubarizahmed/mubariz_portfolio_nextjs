@@ -1,8 +1,9 @@
 import React from "react";
 import { IconContext } from "react-icons";
 import { IoArrowForwardCircleOutline } from "react-icons/io5";
-import  Link  from 'next/link';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
+
 import styles from "@/styles/card.module.css";
 
 const Card = (props) => {
@@ -24,7 +25,7 @@ const Card = (props) => {
           <IconContext.Provider value={{ className: styles.icon }}>
             <Link
               href={`/projects/${encodeURIComponent(props?.id)}`}>
-              <IoArrowForwardCircleOutline className={styles.icon}  size="1.8em" />
+              <IoArrowForwardCircleOutline className={styles.icon} size="1.8em" />
             </Link>
           </IconContext.Provider>
         </div>

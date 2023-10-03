@@ -1,19 +1,17 @@
-'use client'
-
+import { React, useEffect, useState } from "react";
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
 import Typewriter from "typewriter-effect";
 import { createClient } from "contentful";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import DOMPurify from "isomorphic-dompurify";
 import { Collapsible } from '@/components';
-import { React, useEffect, useState } from "react";
+
+import styles from '@/styles/info.module.css'
 
 
-
-export default function Home({ summary, experience, education, info }) {
+export default function Home({ summary, experience, education }) {
   const [currHero, setCurrHero] = useState(1);
   const [loaded, setLoaded] = useState(false);
 
@@ -33,6 +31,7 @@ export default function Home({ summary, experience, education, info }) {
     }
   }
 
+  // color toggle useEffect
   useEffect(() => {
     document.documentElement.style.setProperty(
       "--color-current",
@@ -44,7 +43,7 @@ export default function Home({ summary, experience, education, info }) {
     <>
       <Head>
         <title>Mubariz Ahmed</title>
-        <meta name="description" content="Mechatronics Engineer hobbyist developer and graphics designer." />
+        <meta name="description" content="Mechatronics Engineer, hobbyist developer, and graphics designer." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -144,7 +143,7 @@ export default function Home({ summary, experience, education, info }) {
             </div>
           </section>
           <section className={styles.summary}>
-            <hr className={styles.solid}/>
+            <hr className={styles.solid} />
             <div className={styles.layout}>
               <div className={styles.title}>
                 <p>01</p>
@@ -239,7 +238,6 @@ export async function getStaticProps() {
   let summary = {};
   let experience = [];
   let education = [];
-  let info = {};
   const client = createClient({
     space: process.env.REACT_APP_SPACE,
     accessToken: process.env.REACT_APP_ACCESS_TOKEN,
@@ -248,7 +246,6 @@ export async function getStaticProps() {
   try {
     await client.getEntries({ content_type: "info" }).then((entries) => {
       console.log(entries.items[0]);
-      info = entries.items[0];
       summary = entries.items[0];
     });
     await client
@@ -273,7 +270,7 @@ export async function getStaticProps() {
       summary,
       experience,
       education,
-      info,
+
     },
   }
 }

@@ -1,12 +1,9 @@
-import React, {  } from "react";
-import { IconContext } from "react-icons";
+import React, { } from "react";
 import { FaLinkedinIn, FaGithub, FaXing } from "react-icons/fa";
-import Image from "next/image";
-
 
 import styles from "@/styles/footer.module.css";
 
-const Footer = ({ info }) => {
+const Footer = () => {
   const linkedIn = "https://www.linkedin.com/in/mubariz-ahmed/";
   const gitHub = "https://github.com/mubarizahmed"
 
@@ -18,25 +15,22 @@ const Footer = ({ info }) => {
             <img src={'/logo-H_w.svg'} alt="Mubariz Ahmed Logo" />
           </div>
           <div className={styles.icons}>
-            <IconContext.Provider
-               value={{ className: styles.iconStyle }}
-            >
-              <a className={styles.icon} href={linkedIn} aria-label="LinkedIn Profile">
-                <FaLinkedinIn />
-              </a>
 
-              <a className={styles.icon} href={gitHub} aria-label="GitHub Profile">
-                <FaGithub />
-              </a>
+            <a className={styles.icon} href={linkedIn} aria-label="LinkedIn Profile">
+              <FaLinkedinIn />
+            </a>
 
-              <a className={styles.icon} href={linkedIn} aria-label="Xing Profile">
-                <FaXing />
-              </a>
-            </IconContext.Provider>
+            <a className={styles.icon} href={gitHub} aria-label="GitHub Profile">
+              <FaGithub />
+            </a>
+
+            <a className={styles.icon} href={linkedIn} aria-label="Xing Profile">
+              <FaXing />
+            </a>
           </div>
         </div>
         <div className={styles.right}>
-          
+
           <form
             className={styles.form}
             target="_blank"

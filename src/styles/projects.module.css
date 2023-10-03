@@ -111,8 +111,8 @@
 
 .tag {
   display: flex;
-  /* justify-content: center;
-  align-items: center; */
+  justify-content: center;
+  align-items: center;
   gap: 0.5em;
   background-color: var(--color-white);
   border-radius: 1em;

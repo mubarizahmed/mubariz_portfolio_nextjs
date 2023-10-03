@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+
 import styles from "@/styles/collapsible.module.css";
 
 const Collapsible = (props) => {
@@ -17,7 +18,7 @@ const Collapsible = (props) => {
           <h3>{props.label2}</h3>
           <h3>{props.label3}</h3>
         </div>
-        <div className ={styles.headerImage}>
+        <div className={styles.headerImage}>
           <img
             src={props.imageUrl}
             alt={props.imageAlt}
@@ -30,11 +31,11 @@ const Collapsible = (props) => {
         style={
           open
             ? {
-                height: toggleRef.current.scrollHeight + "px",
-              }
+              height: toggleRef.current.scrollHeight + "px",
+            }
             : {
-                height: "0px",
-              }
+              height: "0px",
+            }
         }
       >
         <div>{props.children}</div>

@@ -61,7 +61,8 @@
   border-radius: 50%;
   /* box-sizing: border-box;
   text-align: center; */
-
+  vertical-align: middle;
+  color: var(--color-black);
 }
 
 .right{
