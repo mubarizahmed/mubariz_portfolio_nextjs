@@ -27,9 +27,9 @@ const Navbar = () => {
         <Link className={styles.link} href="/projects">
           projects
         </Link>
-        <Link className={styles.link} href="/projects">
+        {/* <Link className={styles.link} href="/projects">
           other
-        </Link>
+        </Link> */}
       </div>
       <div className={styles.button} >
         <button type="button" onClick={() => goToContact()}>Contact</button>
@@ -58,9 +58,9 @@ const Navbar = () => {
             <Link className={styles.link} href="/projects">
               projects
             </Link>
-            <Link className={styles.link} href="/projects">
+            {/* <Link className={styles.link} href="/projects">
               other
-            </Link>
+            </Link> */}
             <div className={styles.button +' '+ styles.menuButton}>
               <button type="button" onClick={() => goToContact()}>Contact</button>
             </div>

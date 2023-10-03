@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap');
 
 :root {
-  --font-family: 'Space Grotesk', sans-serif;
+  /* --font-family: 'Space Grotesk', sans-serif; */
   --font-text: 'Manrope', sans-serif;
   --font-code:'Inconsolata', monospace;
   

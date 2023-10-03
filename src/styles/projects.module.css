@@ -75,6 +75,31 @@
   border-top: 0.5em solid var(--color-4);
 }
 
+.filterButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem;
+  font-family: var(--font-text);
+  font-size: 1.2em;
+  color: var(--color-black);
+  font-weight: bold;
+  border: 2px solid var(--color-black);
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
+.filterButton:hover{
+  color: var(--color-current);
+  border: 2px solid var(--color-current);
+}
+
+.filterButtonActive{
+  color: var(--color-current);
+  border: 2px solid var(--color-current);
+}
+
 .tagSelector {
   display: flex;
   flex-wrap: wrap;
@@ -124,4 +149,5 @@
   .tabs {
     font-size: 1.2em;
   }
+
 }

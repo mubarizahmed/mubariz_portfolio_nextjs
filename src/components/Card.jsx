@@ -7,7 +7,7 @@ import styles from "@/styles/card.module.css";
 
 const Card = (props) => {
   return (
-    <div className={styles.card}>
+    <motion.div className={styles.card}>
       <div className={styles.imgWrap}>
         <img className={styles.img} src={props?.cover} alt={props?.title} />
 
@@ -29,7 +29,7 @@ const Card = (props) => {
           </IconContext.Provider>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

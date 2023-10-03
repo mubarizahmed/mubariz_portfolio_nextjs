@@ -19,7 +19,7 @@ const Footer = ({ info }) => {
           </div>
           <div className={styles.icons}>
             <IconContext.Provider
-              value={{ color: "black", style: { verticalAlign: "middle" } }}
+               value={{ className: styles.iconStyle }}
             >
               <a className={styles.icon} href={linkedIn} aria-label="LinkedIn Profile">
                 <FaLinkedinIn />

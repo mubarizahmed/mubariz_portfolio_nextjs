@@ -40,6 +40,10 @@
     font-size: 1.2em;
 }
 
+.link:hover {
+    color: var(--color-current);
+}
+
 .button button{
   padding: 0.5rem 1rem;
   color: var(--color-white);

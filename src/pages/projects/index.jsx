@@ -3,11 +3,13 @@ import { createClient } from "contentful";
 import styles from "@/styles/projects.module.css";
 import { Card } from "../../components";
 import { motion } from "framer-motion";
+import { RiFilter2Fill } from "react-icons/ri";
 
 const Projects = ({ projects, filterTags }) => {
 
   const [toggleState, setToggleState] = useState(1);
   const [viewData, setViewData] = useState([]);
+  const [showFilter, setShowFilter] = useState(false);
 
 
   //updateViewData()
@@ -93,7 +95,8 @@ const Projects = ({ projects, filterTags }) => {
 
         transition={{ duration: 1 }}
         className={styles.tagSelector}>
-        {filterTags[toggleState-1].map((item) => (
+          {showFilter ? 
+        filterTags[toggleState-1].map((item) => (
           <motion.div layout
             className={item.enabled ? styles.tag + ' ' + styles.tagEnabled: styles.tag}
             key={item.name}
@@ -102,7 +105,16 @@ const Projects = ({ projects, filterTags }) => {
             {item.enabled ? <span>&#10005;</span> : null}
             {item.name}
           </motion.div>
-        ))}
+        ))
+          : ''}
+          <motion.div layout
+            className={styles.filterButton + ' ' + (showFilter ? styles.filterButtonActive : '')}
+            onClick={() => setShowFilter(!showFilter)}
+          >
+            <RiFilter2Fill />
+       
+          </motion.div>
+      
       </motion.div>
       <motion.div layout className={styles.content}>
         {viewData &&
