@@ -84,6 +84,7 @@
   font-family: var(--font-text);
   font-size: 1.2em;
   color: var(--color-black);
+  opacity: 60%; 
   font-weight: bold;
   border: 2px solid var(--color-black);
   border-radius: 0.5em;
@@ -93,11 +94,13 @@
 .filterButton:hover{
   color: var(--color-current);
   border: 2px solid var(--color-current);
+  opacity: 1; 
 }
 
 .filterButtonActive{
   color: var(--color-current);
   border: 2px solid var(--color-current);
+  opacity: 1; 
 }
 
 .tagSelector {
