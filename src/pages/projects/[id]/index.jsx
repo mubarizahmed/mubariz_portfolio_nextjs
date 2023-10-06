@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import { createClient } from "contentful";
 import DOMPurify from "isomorphic-dompurify";
-import { marked } from "marked";
+import { Marked } from "marked";
+import {markedHighlight} from "marked-highlight";
+import hljs from 'highlight.js';
+import markedKatex from "marked-katex-extension";
 import { IconContext } from "react-icons";
 import { RiGithubFill } from "react-icons/ri";
 import { LuFileBox } from "react-icons/lu";
@@ -11,6 +14,8 @@ import { SlGlobe } from "react-icons/sl";
 import styles from "@/styles/projectDetails.module.css";
 
 const ProjectDetails = ({ content, body, css, title }) => {
+
+
   return (
     <>
       <Head>
@@ -96,6 +101,20 @@ export const getStaticProps = async ({ params }) => {
   let res = await client.getEntry(id);
 
   let body = {};
+
+  // Configure the marked library to use the prism extension
+  const marked = new Marked(
+    markedHighlight({
+      langPrefix: 'hljs language-',
+      highlight(code, lang) {
+        const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+        return hljs.highlightAuto(code).value;
+      }
+    })
+  );
+
+
+  marked.use(markedKatex({throwOnError: false}));
 
   if (res.fields.detailsMd) {
     body = DOMPurify.sanitize(marked.parse(res.fields.detailsMd));

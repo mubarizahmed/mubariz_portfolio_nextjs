@@ -1,6 +1,7 @@
 import { Footer, Navbar } from '../components'
 
 import '@/styles/globals.css'
+import '@/styles/github-dark.css'
 
 export default function App({ Component, pageProps }) {
   return (

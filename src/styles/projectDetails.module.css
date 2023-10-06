@@ -119,8 +119,12 @@
   padding-bottom: 0em;
 }
 
+.body h4{
+  font-size: 1.15em;
+}
+
 .body p{
-  font-size: 1.15rem;
+  font-size: 1.15em;
   padding-bottom: 0.5em;
 }
 
@@ -155,10 +159,77 @@
   padding-left: 2em;
 }
 
-.blog code{
+.body ol {
+  margin: 0.5rem 0rem;
+  font-size: 1.15rem;
+  padding-left: 2em;
+}
+
+.blog pre:has(code){
   text-align: left;
   font-family: var(--font-code);
+  font-size: 1.15rem;
+  margin: 1em 0;
+  background-color: #0d1117;
+  padding: 1.5em;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  /* overflow: scroll; */
+  overflow-x: scroll;
+}
+
+/* Works on Firefox */
+.blog pre:has(code){
+	scrollbar-width: thin;
+	scrollbar-color: white transparent;
+	/* scrollbar-gutter: stable; */
+}
+/* Works on Chrome, Edge, and Safari */
+.blog pre:has(code)::-webkit-scrollbar {
+	width: 1rem;
+  height: 1rem;
+
+}
+.blog pre:has(code)::-webkit-scrollbar-track {
+	background: transparent;
+  padding: 0.5rem;
+  border: 3px solid transparent;
+      /* box-shadow: inset 0 0 10px 10px green; */
+    /* border: solid 5px transparent; */
+}
+.blog pre:has(code)::-webkit-scrollbar-thumb {
+	/* background-color: white; */
+	border-radius: 20px;
+	border: 3px solid transparent;
+  padding: 0.5rem;
+  box-shadow: inset 0 0 10px 10px white;
+  border: solid 5px transparent;
+}
+
+.blog code{
+  width: 100%;
   overflow-wrap: break-word;
+  /* color: var(--color-white); */
+}
+
+.body table{
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 1em 0;
+  font-size: 1.15rem;
+  font-family: var(--font-code);
+}
+.body th{
+  color: var(--color-current);
+  border: 1px solid var(--color-black);
+  padding: 0.5em;
+
+}
+.body td{
+  border: 1px solid var(--color-black);
+  padding: 0 0.5em;
 }
 
 @media (max-width: 60rem) {
