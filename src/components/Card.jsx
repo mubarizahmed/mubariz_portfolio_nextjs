@@ -37,7 +37,7 @@ const Card = (props) => {
           <h3>{props?.title}</h3>
           <IconContext.Provider value={{ className: styles.icon }}>
             <Link
-              href={`/projects/${encodeURIComponent(props?.id)}`}>
+              href={`/projects/${encodeURIComponent(props?.url)}`}>
               <IoArrowForwardCircleOutline className={styles.icon} size="1.8em" />
             </Link>
           </IconContext.Provider>

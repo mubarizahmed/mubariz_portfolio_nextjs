@@ -138,6 +138,7 @@ const Projects = ({ projects, filterTags }) => {
                 title={project?.fields?.title}
                 cover={project?.fields?.cover?.fields?.file?.url}
                 details={project?.fields?.tags}
+                url={project?.fields?.url}
               ></Card>
 
             ))}
@@ -159,15 +160,19 @@ export async function getStaticProps() {
   let projects = [];
 
   await client.getEntries({ content_type: "project" }).then((entries) => {
+
+    console.log(entries);
+    let items = entries.items.sort((a, b) => a.fields.id - b.fields.id);
     //console.log(entries);
     projects = [
-      entries.items.filter((x) => x.fields.category === "Engineering"),
-      entries.items.filter((x) => x.fields.category === "Software"),
-      entries.items.filter((x) => x.fields.category === "Design"),
-      entries.items,
+      items.filter((x) => x.fields.category === "Engineering"),
+      items.filter((x) => x.fields.category === "Software"),
+      items.filter((x) => x.fields.category === "Design"),
+      items,
     ]
-
   });
+
+
 
   let filterTags = [];
 

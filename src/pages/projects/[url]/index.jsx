@@ -81,7 +81,7 @@ export const getStaticPaths = async () => {
 
   const paths = res.items.map((item) => {
     return {
-      params: { id: item.sys.id },
+      params: {url: item.fields.url },
     };
   });
 
@@ -97,8 +97,13 @@ export const getStaticProps = async ({ params }) => {
     accessToken: process.env.REACT_APP_ACCESS_TOKEN,
   });
 
-  const { id } = params;
-  let res = await client.getEntry(id);
+  const { url } = params;
+  let res = await client.getEntries({
+    content_type: "project",
+    'fields.url': url
+  });
+
+  res = res.items[0];
 
   let body = {};
 
